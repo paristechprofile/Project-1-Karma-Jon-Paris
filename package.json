@@ -1,0 +1,23 @@
+{
+  "name": "project-1-karma-jon-paris",
+  "version": "1.0.0",
+  "description": "*Short explanation of the project (1-2 sentences) - what is the goal of the project and/or main functionality?*",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paristechprofile/Project-1-Karma-Jon-Paris.git"
+  },
+  "author": "Paris",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paristechprofile/Project-1-Karma-Jon-Paris/issues"
+  },
+  "homepage": "https://github.com/paristechprofile/Project-1-Karma-Jon-Paris#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.13"
+  }
+}
