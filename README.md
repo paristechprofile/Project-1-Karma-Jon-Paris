@@ -1,6 +1,8 @@
 # App Name
 
+
 *Short explanation of the project (1-2 sentences) - what is the goal of the project and/or main functionality?*
+Catchy is the name of our project. Which is an app that allows us to save our favorite albums into a unordered list format that we can add or delete.
 
 [Link to project hosted on Heroku]()
 
