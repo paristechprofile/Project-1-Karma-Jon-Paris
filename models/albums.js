@@ -1,7 +1,8 @@
 const
     mongoose = require(`mongoose`),
-    Schema = mongoose.Schema,
-    AlbumSchema = new Schema({
+    Schema = mongoose.Schema;
+    
+const AlbumSchema = new Schema({
         name: String,
         releaseDate: String,
         artist: {
