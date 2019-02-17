@@ -4,9 +4,7 @@ const AlbumSchema = new Schema({
     artist: {
         name:String,
         artistPic: String,
-    },
-    image: String,
-    album: String
+    }
 });
 
 const Album = mongoose.model(`Album`, AlbumSchema);
