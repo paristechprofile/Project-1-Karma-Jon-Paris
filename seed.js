@@ -1,20 +1,29 @@
-const db = require(`.models`);
+const db = require(`./models`);
 
 //let's make sure we know how to hard code this data and
 // determine how this json will be different when dynamic
 
-/* let user_list = [{
-    _id: 1,
+let albumList = {
     name: `Paris`,
     email: `123@SpeechGrammarList.com`,
     password: `stuff`,
     profilePic: `URL`,
     albumList: [{
         name: `soFarGone`,
-        artist: {
         releaseDate: `2009`,
-        image: `URL`,
-        },
+        // artist: {
+        //     image: `URL`,
+        // },
+        image: "",
+        album: ""
     }],
-}]; */
 
+};
+
+// Clear out the all the data and create album
+db.Users.deleteMany({}, (err, albums) => {
+    db.Users.create(albumList, (err, albums) => {
+        if (err) return console.log(err);
+        console.log(`created the ablums ${albums} `)
+    });
+})
