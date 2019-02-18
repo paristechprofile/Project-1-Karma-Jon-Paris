@@ -1,7 +1,9 @@
-const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/book-app", {
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/catchy-app', {
     useNewUrlParser: true
 });
 
-module.exports.Album = require('./albums.js');
-module.exports.Users = require('./users.js');
+module.exports = {
+    User: require('./user.js'),
+    Album: require('./album.js'),
+}
