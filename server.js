@@ -1,13 +1,10 @@
 // import model files 
-const
-    express = require(`express`),
-    bodyParser = require(`body-parser`),
-    db = require(`./models`);
+const express = require(`express`);
+const bodyParser = require(`body-parser`);
+const db = require(`./models`);
 
 //set app to axpress library
 let app = express();
-
-console.log("Just testing out... hello hello")
 
 //serve static files from public folder
 app.use(express.static(`public`));
@@ -27,5 +24,4 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.listen(process.env.PORT || 3000, function() {
    console.log(`Catchy listening at localhost3000`);
-})
-
+});
