@@ -26,7 +26,10 @@ app.use(require("express-session")({
     saveUninitialized: false
 }))
 
+
+passport.use(new localStrategy(User.authenticate()));
 // These two method are responsible for reading the sesssion and decoding and uncoding the session 
+
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
@@ -94,6 +97,41 @@ app.post('/register', (req, res) => {
         });
     })
 })
+
+// Secret route
+app.get('/secret', isLoggedIn, (req, res) => {
+    res.render("secret")
+})
+
+// LOGIN ROUTES
+// Render login form
+app.get('/login', (req, res) => {
+    res.render("login");
+})
+
+// Login logic
+// Middleware  - it runs before our final callback
+// passport.authenticate the credentials whether password is correct or wrong
+app.post("/login", passport.authenticate("local", {
+    successRedirect: "/secret",
+    failureRedirect: "/login"
+}), (req, res) => {})
+
+// Handling logout
+app.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect('/');
+})
+
+// Creating middleware
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/login');
+}
+
+
 // Get a single album
 app.get('/albums/:id', (req, res) => {
     db.Album.findOne({
@@ -108,10 +146,6 @@ app.get('/albums/:id', (req, res) => {
     })
 })
 
-// Secret route
-app.get('/secret', (req, res) => {
-    res.render("secret")
-})
 
 // Listening server on localhost:3000
 app.listen(process.env.PORT || 3000, () => {
