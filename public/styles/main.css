@@ -1,0 +1,29 @@
+*{
+    font-family: 'Ubuntu', sans-serif;
+}
+.header{
+    border: 1px solid black;
+    height: 4em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2em;
+}
+.main{
+    text-align: center;
+}
+.input-group{
+    border: 1px solid black;
+    height: 4em;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 2em;
+}
+.albums{
+    padding: 0em 1em;
+}
+.footer{
+    height: 3em;
+}

@@ -1,8 +1,7 @@
 // import model files 
-const
-    express = require(`express`),
-    bodyParser = require(`body-parser`),
-    db = require(`./models`);
+const express = require(`express`);
+const bodyParser = require(`body-parser`);
+const db = require(`./models`);
 
 //set app to axpress library
 let app = express();
