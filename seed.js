@@ -56,9 +56,9 @@ let user_List = [{
     }]
 }
 ];
-// Adding a new user and a new album to that new user.
-db.User.remove({}, (err,users)=>{
-    db.Album.remove({}, (err,albums)=>{
+// Adding a new user and a new album to that new user. 
+db.User.deleteMany({}, (err,users)=>{
+    db.Album.deleteMany({}, (err,albums)=>{
         db.Album.create( princeAlbum, (err, savedAlbum)=> {
             if(err){console.log("error is in 1");}
             else {
