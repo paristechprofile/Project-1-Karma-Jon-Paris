@@ -1,7 +1,10 @@
 // import model files 
 const express = require(`express`);
+const mongoose = require('mongoose');
 const bodyParser = require(`body-parser`);
 const db = require(`./models`);
+
+mongoose.connect('mongodb://localhost/catchy-app');
 
 //set app to axpress library
 let app = express();
@@ -10,7 +13,7 @@ let app = express();
 app.use(express.static(`public`));
 
 //body parser config to accept datatypes
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ useNewUrlParser: true } ));
 
 
 // // // // // // // // 
@@ -21,6 +24,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 // // // // // // // // 
 // ROUTES
 // // // // // // // // 
+
+// 
+
 
 app.listen(process.env.PORT || 3000, function() {
    console.log(`Catchy listening at localhost3000`);
