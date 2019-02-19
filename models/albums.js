@@ -1,7 +1,8 @@
-const
-    mongoose = require(`mongoose`),
-    Schema = mongoose.Schema,
-    AlbumSchema = new Schema({
+
+const mongoose = require(`mongoose`);
+const Schema = mongoose.Schema;
+    
+const AlbumSchema = new Schema({
         name: String,
         releaseDate: String,
         artist: {
@@ -10,6 +11,7 @@ const
         },
         image: String,
         album: String
-    }),
-    Album = mongoose.model(`Album`, AlbumSchema);
+    });
+const Album = mongoose.model(`Album`, AlbumSchema);
+
 module.exports = Album;
