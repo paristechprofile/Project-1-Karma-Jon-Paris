@@ -27,11 +27,11 @@ app.use(require("express-session")({
 }))
 
 
-passport.use(new localStrategy(User.authenticate()));
+// passport.use(new localStrategy(User.authenticate()));
 // These two method are responsible for reading the sesssion and decoding and uncoding the session 
 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
 
 
 // Tell express to use passport
@@ -46,7 +46,7 @@ app.use(express.static(`public`));
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-
+app.use(bodyParser.json());
 
 // // // // // // // // 
 // ROUTES
@@ -166,7 +166,7 @@ app.get('/api/users/:id', (req, res) => {
 app.post('/api/user', (req, res) => {
     // create a new User
     let newUser = new db.User({
-        name: req.body.title,
+        name: req.body.name,
         email: req.body.email,
         profilePic: req.body.profilePic
     });

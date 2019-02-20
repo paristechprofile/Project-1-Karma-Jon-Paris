@@ -1,0 +1,91 @@
+* {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #211F1F;
+    color: white;
+}
+
+/* .container-fluid{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	border: 1px solid white;
+} */
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.col {
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+
+}
+
+h2,
+h6,
+.fas {
+    background-color: #2d2d2d;
+}
+
+.header {
+    height: 4em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2em;
+    background-color: #2d2d2d;
+}
+
+.main {
+    text-align: center;
+    background-color: #2d2d2d;
+}
+
+.input-group {
+    height: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 2em;
+}
+
+.form-control {
+    background-color: #2d2d2d;
+    border-color: black;
+}
+
+.btn {
+    border-color: black;
+}
+
+.albums {
+    padding: 0em 1em;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border-color: black;
+    margin: 1em 0em;
+}
+
+.card-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    height: 3em;
+}
