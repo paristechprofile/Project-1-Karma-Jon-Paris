@@ -35,7 +35,7 @@ app.get('/api/users',(req,res)=>{
     })
 })
 
-// Find One User
+// Find One User & All Albums
 app.get("/api/user/:id",(req,res)=>{
     db.User.findOne({_id:req.params.id}, (err,foundUser)=>{
 
@@ -47,6 +47,10 @@ app.get("/api/user/:id",(req,res)=>{
         res.json(users);
     })
 })
+
+// Find One Album
+
+
 
 // Create User
 app.post("/api/user", (req,res)=>{
@@ -85,6 +89,16 @@ app.post('/api/user/:id/albums',(req,res)=>{
     })
     });
 })
+
+// Delete an Album
+
+
+app.delete('/api/user/:id/albums/:id',(req,res)=>{
+    db.Album.remove({_id:req.params.id}, (err,removedAlbum)=>{
+        if(err){console.log(err)}
+        res.json(removedAlbum);
+    }) 
+});
 
 
 //Run server and run on port 3000
