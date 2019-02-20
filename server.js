@@ -132,17 +132,62 @@ function isLoggedIn(req, res, next) {
 }
 
 
-// Get a single album
-app.get('/albums/:id', (req, res) => {
+// Get Route
+// find the all user
+app.get('/api/users', (req, res) => {
+    db.User.find()
+        .populate('albums')
+        .exec((err, users) => {
+            if (err) {
+                throw err;
+            }
+            console.log(users);
+            res.json(users);
+        })
+})
+
+// Get Album by id
+app.get('/api/users/:id', (req, res) => {
     db.Album.findOne({
         _id: req.params.id
-    }, (err, foundAlbum) => {
+    }, (err, foundUser) => {
         if (err) return console.log(`Album title is not correct ${err}`);
+        res.json(foundUser);
+    }).populate('user').exec((err, users) => {
+        if (err) {
+            throw err;
+        }
+        console.log(users);
+        res.json(users);
+    })
+})
 
-        res.json(foundAlbum);
-    }).populate('album').exec((err, foundAlbum) => {
+// POST ROUTE 
+app.post('/api/user', (req, res) => {
+    // create a new User
+    let newUser = new db.User({
+        name: req.body.title,
+        email: req.body.email,
+        profilePic: req.body.profilePic
+    });
+    console.log(newUser);
+    newUser.save((err, user) => {
         if (err) return console.log(err);
-        res.json(foundAlbum)
+        res.json(user);
+    })
+})
+
+// Delete User by id
+app.delete('/api/users/:id', (req, res) => {
+    console.log("user Delete", req.params);
+    const userId = req.params.id;
+
+    // find one and remove
+    db.User.findOneAndDelete({
+        _id: userId
+    }, (err, deletedUser) => {
+        if (err) throw err;
+        res.json(deletedUser);
     })
 })
 

@@ -1,52 +1,51 @@
-const db = require(`./models`);
+const db = require('./models');
 
-//let's make sure we know how to hard code this data and
-// determine how this json will be different when dynamic
 
-let users = [{
-    name: 'Paris',
-    email: `123@SpeechGrammarList.com`,
-    profilePic: 'URL',
-    albumList: [],
+let artist = {
+    name:"Prince",
+    artistPic: ""
+ };
 
-}];
+let princeAlbum = {
+    name: "Purple Rain",
+    releaseDate: "1984",
+    artist: {
+        name:"Prince",
+        artistPic: ""
+}
+};
 
-let albums = [{
-    name: "HELLO",
-    releaseDate: "2019",
-    artist: "Karma",
-    image: "",
-    album: "",
-    user: 'Paris'
-}]
+let user3 = {
+    name: "New Person",
+    email: "New@email.com",
+    profilePic: "",
+    albums: []
+}
 
-// Creating a new Album
-db.User.deleteMany({}, (err, album) => {
-    
-    db.User.create(users, (err, createUsers) => {
-        if (err) return console.log(err);
-        console.log(`created the ablum ${createUsers} `)
-    })
-})
 
-// Looping through an array of album
-albums.forEach(album => {
-    let newAlbum = new db.Album({
-        name: album.name,
-        releaseDate: album.releaseDate,
-        artist: album.artist,
-        image: album.image,
-        album: album.album
-    })
-    newAlbum.save((err, savedAlbum) => {
-        if (err) return console.log(err);
-        db.User.find({
-            name: album.user
-        }, (err, foundUser) => {
-            if (err) return console.log(err);
-            foundUser.albums.push(savedAlbum);
-            foundUser.save()
+// Adding a new user and a new album to that new user. 
+db.User.deleteMany({}, (err,users)=>{
+    db.Album.deleteMany({}, (err,albums)=>{
+        db.Album.create( princeAlbum, (err, savedAlbum)=> {
+            if(err){console.log(err);}
+            else {
+                 savedAlbum.artist = artist;
+                console.log(savedAlbum);
+                savedAlbum.save((err,savedArtistAlbum) => {
+                    if(err){console.log(err);}
+                    else{
+                        db.User.create(user3, (err, savedUser)=>{
+                            if(err){console.log(err);}
+                            savedUser.albums.push(savedArtistAlbum);
+                            savedUser.save( (err,savedUserAlbum) => {
+                                if(err){console.log("error is in 3");}
+                                else
+                                    console.log(JSON.stringify(savedUserAlbum));
+                                })
+                        })
+                    }
+                })
+            }
         })
-    });
-
-})
+    })
+});
