@@ -1,0 +1,1 @@
+define(["require","social/auth-window"],function(t){"use strict";var i=t("social/auth-window");return{reauthenticate:function(){return i.reauthenticate("/social/spotify-scrobbling-reauthenticate","spotify_scrobbling_authentication")}}});

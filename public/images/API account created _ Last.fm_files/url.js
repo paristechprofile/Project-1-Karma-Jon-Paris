@@ -1,0 +1,1 @@
+define([],function(){return function(n,e){return n=n.replace(/^\/\w{2}\//,"/"),e&&"en"!=e&&(n="/"+e+n),n}});

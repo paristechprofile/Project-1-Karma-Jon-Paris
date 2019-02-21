@@ -14,10 +14,10 @@ app.use(express.static(__dirname + '/public'));
 /*
  * HTML Endpoints
  */
-
- app.get('/',(req,res)=>{
+app.get('/',(req,res)=>{
     res.sendFile(__dirname + '/views/index.html')
- })
+})
+
 
 
 /*
@@ -72,18 +72,17 @@ app.post("/api/user", (req,res)=>{
 //Update a User
 // Still needs testing. 
 app.put('/api/user/:id',(req,res)=>{
-     
-      const userId = req.params.id;
+    const userId = req.params.id;
     
-      db.User.findOneAndUpdate(
+    db.User.findOneAndUpdate(
         { _id: userId},
         req.body,
         {new: true},
         (err, updatedUser) => {
         if (err) {throw err;}
         res.json(updatedUser);
-      });
     });
+});
 
 // create album 
 
@@ -120,5 +119,5 @@ app.delete('/api/user/:id/albums/:id',(req,res)=>{
 
 //Run server and run on port 3000
 app.listen(3000, () => {
-  console.log('Server running on http://localhost:3000');
+    console.log('Server running on http://localhost:3000');
 });
