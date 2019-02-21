@@ -105,12 +105,6 @@ db.User.deleteMany({}, (err,users)=>{
                         })
                     }
                 })
-<<<<<<< HEAD
-            })
-        }
-    })
-};
-=======
             }
         })
 
@@ -124,4 +118,3 @@ db.User.deleteMany({}, (err,users)=>{
 
 
 
->>>>>>> 9ae5f761eccb584fb0cc5365183d965e38ae7d44
