@@ -70,19 +70,19 @@ app.post("/api/user", (req,res)=>{
 
 //Update a User
 // Still needs testing. 
-app.put('/api/user/:id',(req,res)=>{
+// app.put('/api/user/:id',(req,res)=>{
      
-      const userId = req.params.id;
+//       const userId = req.params.id;
     
-      db.User.findOneAndUpdate(
-        { _id: userId},
-        req.body,
-        {new: true},
-        (err, updatedUser) => {
-        if (err) {throw err;}
-        res.json(updatedUser);
-      });
-    });
+//       db.User.findOneAndUpdate(
+//         { _id: userId},
+//         req.body,
+//         {new: true},
+//         (err, updatedUser) => {
+//         if (err) {throw err;}
+//         res.json(updatedUser);
+//       });
+//     });
 
 // create album 
 
