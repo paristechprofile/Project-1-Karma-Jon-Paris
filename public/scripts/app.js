@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 $(document).ready(() => {
     $.ajax({
@@ -7,3 +8,10 @@ $(document).ready(() => {
     error: handleError
     });
 });
+=======
+console.log("working");
+
+$(document).ready(() =>{
+    
+})
+>>>>>>> Jon-branch-1
