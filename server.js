@@ -27,7 +27,7 @@ app.use(require("express-session")({
 }))
 
 
-// passport.use(new localStrategy(User.authenticate()));
+//  passport.use(new localStrategy(User.authenticate()));
 // These two method are responsible for reading the sesssion and decoding and uncoding the session 
 
 // passport.serializeUser(User.serializeUser());
@@ -55,6 +55,26 @@ app.use(bodyParser.json());
 // app.get('/', (req, res) => {
 //     res.render('home');
 // })
+// ////////////////////////////////////////////////////////////////////////////////////
+// GOOGLE AUTH
+const {OAuth2Client} = require('google-auth-library');
+const client = new OAuth2Client(CLIENT_ID);
+async function verify() {
+  const ticket = await client.verifyIdToken({
+      idToken: token,
+      audience: CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
+      // Or, if multiple clients access the backend:
+      //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
+  });
+  const payload = ticket.getPayload();
+  const userid = payload['sub'];
+  // If request specified a G Suite domain:
+  //const domain = payload['hd'];
+}
+verify().catch(console.error);
+// //////////////////////////////////////////////////////////////
+
+
 
 
 // Define a root route: localhost:3000/
