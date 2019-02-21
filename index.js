@@ -6,11 +6,3 @@ module.exports = {
     Artist: require('./artist'),
 }
 
-$(document).ready(() => {
-    $.ajax({
-    method: 'GET',
-    url: 'http://localhost:3000/api/albums',
-    success: handleSuccess,
-    error: handleError
-    });
-});
