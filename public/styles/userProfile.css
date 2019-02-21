@@ -46,15 +46,12 @@ h2, h6, .fas{
 .form-control{
     background-color: #2d2d2d;
     border-color: black;
-    display: flex;
-    justify-content: center;
 }
 .col-form-label{
     text-align: left;
 }
 .btn{
     border-color: black;
-    justify-content: center;
 }
 .albums{
     padding: 0em 1em;
