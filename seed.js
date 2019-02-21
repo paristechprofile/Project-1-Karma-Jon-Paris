@@ -57,13 +57,8 @@ let user_List = [{
 }
 ];
 // Adding a new user and a new album to that new user. 
-<<<<<<< HEAD
 db.User.remove({}, (err,users)=>{
     db.Album.remove({}, (err,albums)=>{
-=======
- 
-
->>>>>>> 9ae5f761eccb584fb0cc5365183d965e38ae7d44
         db.Album.create( princeAlbum, (err, savedAlbum)=> {
             if(err){console.log("error is in 1");}
             else {
@@ -83,7 +78,6 @@ db.User.remove({}, (err,users)=>{
   
 
 
-<<<<<<< HEAD
 // Adding the array of users listed above under user_list
 for (i = 0;i < user_List.length; i++){
     db.Album.create( user_List[i].albums, (err, savedAlbum)=> {
@@ -95,37 +89,11 @@ for (i = 0;i < user_List.length; i++){
                 savedUser.albums.push(savedAlbum);
                 savedUser.save( (err,savedUserAlbum) => {
                     if(err){console.log("error is in 3");}
-=======
-
-        db.Album.create( princeAlbum, (err, savedAlbum)=> {
-            if(err){console.log(err);}
-            else {
-                // savedAlbum.artist = artist;
-                console.log(savedAlbum);
-                savedAlbum.save((err,savedArtistAlbum) => {
-                    if(err){console.log(err);}
->>>>>>> 9ae5f761eccb584fb0cc5365183d965e38ae7d44
                     else{
                         console.log(`User3 now has ${savedAlbum} inside of it and the user's object is ${savedUser}`);
                     }
                 })
-<<<<<<< HEAD
             })
         }
     })
 };
-=======
-            }
-        })
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 9ae5f761eccb584fb0cc5365183d965e38ae7d44

@@ -13,26 +13,19 @@ app.use(express.static(`/views/index.html`));
 //body parser config to accept datatypes
 app.use(bodyParser.urlencoded({extended: true}));
 
-<<<<<<< HEAD
-=======
- app.get('/',(req,res)=>{
-    res.sendFile(__dirname + '/views/index.html')
- })
->>>>>>> 9ae5f761eccb584fb0cc5365183d965e38ae7d44
+app.get('/',(req,res)=>{
+res.sendFile(__dirname + '/views/index.html')
+})
 
 // // // // // // // // 
 // DATA 
 // // // // // // // // 
 
 
-<<<<<<< HEAD
 // // // // // // // // 
-// ROUTES
+// ROUTES 
 // // // // // // // // 
 
-app.listen(process.env.PORT || 3000, function() {
-   console.log(`Catchy listening at localhost3000`);
-=======
 // console.log("hello")
 // Find all Users 
 app.get('/api/user',(req,res)=>{
@@ -181,5 +174,4 @@ app.delete('/api/user/:userid/albums/:albumid',(req,res)=>{
 //Run server and run on port 3000
 app.listen(3000, () => {
   console.log('Server running on http://localhost:3000');
->>>>>>> 9ae5f761eccb584fb0cc5365183d965e38ae7d44
 });
