@@ -6,7 +6,7 @@ let princeAlbum = {
         artist: {
             name:"Prince",
             artistPic: "",
-         }
+    }
 };
 
 let user3 = {
@@ -26,7 +26,7 @@ let user_List = [{
         artist: {
             name:"Drake",
             artistPic: "",
-         }
+        }
     }]
 },
 {
@@ -39,7 +39,7 @@ let user_List = [{
         artist: {
             name:"Katty Perry",
             artistPic: "",
-         }
+        }
     }]
 },
 {
@@ -52,7 +52,7 @@ let user_List = [{
         artist: {
             name:"Backstreet Boys",
             artistPic: "",
-         }
+        }
     }]
 }
 ];
