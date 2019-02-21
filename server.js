@@ -10,6 +10,7 @@ app.use(express.json())
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
 
+
 /*
  * HTML Endpoints
  */

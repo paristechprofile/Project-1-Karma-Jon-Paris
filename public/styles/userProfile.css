@@ -24,6 +24,7 @@
     justify-content: center;
 
 }
+
 h2, h6, .fas{
     background-color: #2d2d2d;
 }
@@ -39,21 +40,21 @@ h2, h6, .fas{
     text-align: center;
     background-color: #2d2d2d;
 }
-.input-group{
-    height: 4em;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    padding: 2em;
-}
+
+/* FORMS */
 
 .form-control{
     background-color: #2d2d2d;
     border-color: black;
+    display: flex;
+    justify-content: center;
+}
+.col-form-label{
+    text-align: left;
 }
 .btn{
     border-color: black;
+    justify-content: center;
 }
 .albums{
     padding: 0em 1em;
