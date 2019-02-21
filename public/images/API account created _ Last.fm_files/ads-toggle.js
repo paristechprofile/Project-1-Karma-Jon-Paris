@@ -1,1 +1,0 @@
-define([],function(){"use strict";const n=function(){};return n.prototype.start=function(){window.lfmAdsToggle=function(){const n=new URL(window.location.href),t=n.searchParams;null===t.get("no-ads")?t.set("no-ads","true"):t.delete("no-ads"),window.location.href=n.toString()}},n});
