@@ -72,6 +72,7 @@ async function verify() {
   //const domain = payload['hd'];
 }
 verify().catch(console.error);
+
 // //////////////////////////////////////////////////////////////
 
 

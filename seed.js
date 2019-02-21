@@ -40,7 +40,8 @@ db.User.deleteMany({}, (err,users)=>{
                             savedUser.save( (err,savedUserAlbum) => {
                                 if(err){console.log("error is in 3");}
                                 else
-                                    console.log(JSON.stringify(savedUserAlbum));
+                                    // console.log(JSON.stringify(savedUserAlbum));
+                                    console.log(savedUserAlbum)
                                 })
                         })
                     }
