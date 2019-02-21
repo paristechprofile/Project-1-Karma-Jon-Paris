@@ -60,8 +60,7 @@ db.User.deleteMany({}, (err,users)=>{
 
 // Adding a new user and a new album to that new user. 
  
-db.User.deleteMany({}, (err,users)=>{
-    db.Album.deleteMany({}, (err,albums)=>{
+
         db.Album.create( princeAlbum, (err, savedAlbum)=> {
             if(err){console.log(err);}
             else {
@@ -83,12 +82,10 @@ db.User.deleteMany({}, (err,users)=>{
                 })
             }
         })
-    })
-});
+  
 
 
-db.User.deleteMany({}, (err,users)=>{
-    db.Album.deleteMany({}, (err,albums)=>{
+
         db.Album.create( princeAlbum, (err, savedAlbum)=> {
             if(err){console.log(err);}
             else {
@@ -110,8 +107,8 @@ db.User.deleteMany({}, (err,users)=>{
                 })
             }
         })
-    })
-});
+
+
 
 
 

@@ -7,7 +7,7 @@ const ArtistSchema = new Schema({
 })
     
 const AlbumSchema = new Schema({
-        name: String,
+        name: {type:String,unique:true},
         releaseDate: String,
         artist: ArtistSchema
     });
