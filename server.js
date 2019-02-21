@@ -17,7 +17,7 @@ app.use(express.static(__dirname + '/public'));
  */
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + 'index.html')
+    res.sendFile(__dirname + 'public/index.html')
 })
 
 
@@ -60,8 +60,6 @@ app.get("/api/user/:id", (req, res) => {
 
 // Find One Album
 
-
-
 // Create User
 app.post("/api/user", (req, res) => {
     let newUser = new db.User({
@@ -79,22 +77,6 @@ app.post("/api/user", (req, res) => {
         res.json(user);
     })
 });
-
-//Update a User
-// Still needs testing. 
-// app.put('/api/user/:id',(req,res)=>{
-
-//       const userId = req.params.id;
-
-//       db.User.findOneAndUpdate(
-//         { _id: userId},
-//         req.body,
-//         {new: true},
-//         (err, updatedUser) => {
-//         if (err) {throw err;}
-//         res.json(updatedUser);
-//       });
-//     });
 
 // create album 
 
