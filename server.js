@@ -21,14 +21,10 @@ app.get('/', (req, res) => {
 })
 
 
-<<<<<<< HEAD
-/*
-=======
  app.get('/profile',(req,res)=>{
     res.sendFile(__dirname + '/views/userProfile.html')
  })
 /*çç
->>>>>>> Jon-branch-1
  * Response Endpoints
  */
 app.get('/api', (req,res)=>{
