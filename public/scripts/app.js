@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+// google signIn 
+// function onSignIn(googleUser) {
+//     var profile = googleUser.getBasicProfile();
+//     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+//     console.log('Name: ' + profile.getName());
+//     console.log('Image URL: ' + profile.getImageUrl());
+//     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+// }
+
+
+// // google signout function
+// function signOut() {
+//     var auth2 = gapi.auth2.getAuthInstance();
+//     auth2.signOut().then(function () {
+//         console.log('User signed out.');
+//     });
+// }
 
 
 // get the album
@@ -61,6 +79,20 @@ $(document).ready(function () {
         console.log("dbUser", dbUser);
 
         albumList = dbUser.albums;
+=======
+
+// get the alum
+$(document).ready(function () {
+    //  Set the user globally
+    // Se the user's id globally;
+     let albumList = []
+
+    console.log("app is working fine");
+    const findAlbumById = dbUser => {
+        console.log("dbUser", dbUser);
+
+         albumList = dbUser.albums;
+>>>>>>> Jon-branch-1
 
         for (let i = 0; i < albumList.length; i++) {
             let artistName = albumList[i].artist.name;
@@ -93,7 +125,11 @@ $(document).ready(function () {
                 // Ajax callf or single user
                 $.ajax({
                     method: "DELETE",
+<<<<<<< HEAD
                     url: `/api/user/5c700f01429c65f5556ce478/albums/${$("#albumStack").attr('data-userid')}`,
+=======
+                    url: `/api/user/5c6f165de0c1096949b29556/albums/${$("#albumStack").attr('data-userid')}`,
+>>>>>>> Jon-branch-1
                     success: deleteAlbum,
                     error: err => console.log(err)
                 })
@@ -107,14 +143,23 @@ $(document).ready(function () {
         }
     }
 
+<<<<<<< HEAD
     //   Make an Ajax call to get user by id
     $.ajax({
         method: "GET",
         url: "/api/user/5c7035396e9949fc878e45a0",
+=======
+
+    //   Make an Ajax call to get user by id
+    $.ajax({
+        method: "GET",
+        url: "/api/user/5c6f165de0c1096949b29556",
+>>>>>>> Jon-branch-1
         success: findAlbumById,
         error: err => console.log(err)
     })
 
+<<<<<<< HEAD
     // Add an Event handler on the submit button
     $('#albumForm').on("submit", function (e) {
         console.log("Submit button is firing")
@@ -189,3 +234,33 @@ $(document).ready(function () {
 
 // TODO: DELETE ALBUM, EDIT USER INFO, CREATE ALBUM
 // TODO: BACKEND INTEGRATION ROUTES,
+=======
+    Add an Event handler on the submit button
+    $('#button-addon2').on("click", function (e) {
+        console.log("Submit button is firing")
+        e.preventDefault();
+        let inputValue = $('#inputSubmit').val();
+        console.log(inputValue)
+        $("input[type=text], textarea").val("");
+    })
+    Find the id of the user by id
+    const findUserId = id => {
+        console.log(`This is new user ${id}`)
+    }
+
+    TODO:  get the ablum name, image and music and display in the front end
+
+
+
+    Do an Ajax call  to create new album
+    $.ajax({
+        method: "POST",
+        url: "/api/user/5c6f165de0c1096949b29556/albums",
+        success: creatNewAlbum,
+        err: err => console.log(err)
+    })
+
+
+})
+
+>>>>>>> Jon-branch-1
