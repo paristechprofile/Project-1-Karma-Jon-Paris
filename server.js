@@ -18,7 +18,9 @@ app.use(express.static(__dirname + '/public'));
     res.sendFile(__dirname + '/views/index.html')
  })
 
-app.get('/profile')
+ app.get('/profile',(req,res)=>{
+    res.sendFile(__dirname + '/views/userProfile.html')
+ })
 /*çç
  * Response Endpoints
  */
