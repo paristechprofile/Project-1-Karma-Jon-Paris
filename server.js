@@ -1,3 +1,49 @@
+<<<<<<< HEAD
+const 
+    express = require('express'),
+    app = express(),
+    bodyParser = require('body-parser'),
+    db = require('./models');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json())
+
+// serve static files from public folder
+app.use(express.static(__dirname + '/public'));
+
+/*
+ * HTML Endpoints
+ */
+
+ app.get('/',(req,res)=>{
+    res.sendFile(__dirname + '/views/index.html')
+ })
+
+app.get('/profile',(req,res)=>{
+    res.sendFile(__dirname + '/views/userProfile.html')
+ });
+/*
+ * Response Endpoints
+ */
+app.get('/api', (req,res)=>{
+    res.json({
+        
+        intro: "This is the exciting Catchy API",
+        documentationUrl: "https://github.com/paristechprofile/Project-1-Karma-Jon-Paris/blob/master/README.md",
+        baseUrl: "http://YOUR-APP-NAME.herokuapp.com, Adding Later",
+        endpoints: [
+            { method: "GET", path: "/api", description: "Reference for Endpoints" },
+            { method: "GET", path: "/api/users", description: "Show all users for admin" },
+            { method: "GET", path: "/api/user/:id", description: "Shows One Specific User and their Album Collection" },
+            { method: "GET", path: "/api/profile/:id", description: "Gives a user their profile information" },
+            { method: "GET", path: "/api/albums", description: "Get all Albums in collection" },
+            { method: "POST", path: "/api/user/newuser", description: "Create a new user" },
+            { method: "POST", path: "/api/user/:id/albums", description: "Create new album for one user." },
+            { method: "PUT", path: "/api/user/:id'", description: "Update a user's information" },
+            { method: "DELETE", path: "/api/user/:userid/albums/:albumid", description: "Delete an album from a collection" }
+        ]
+    });})
+=======
 // import model files 
 const
     express = require(`express`),
@@ -29,6 +75,7 @@ res.sendFile(__dirname + '/views/userProfile.html')
 // // // // // // // // 
 // ROUTES 
 // // // // // // // // 
+>>>>>>> a9ab0e682c335e9fc555908d7878fdfedb87118b
 
 // console.log("hello")
 // Find all Users 
