@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // google signIn 
 // function onSignIn(googleUser) {
 //     var profile = googleUser.getBasicProfile();
@@ -32,13 +31,15 @@ $(document).ready(function () {
 
         let artistName = albumList[i].artist.name;
         let albumName = albumList[i].name;
+        let albumPic = albumList[i].albumPic;
 
         let userId = albumList[i]._id;
         console.log(userId);
+        console.log(albumPic)
         let htmlFragment = `
             <div class="col" id="albumStack" data-userId="${userId}">
                 <div class="card" style="width: 18rem;">
-                    <img src="images/Purple-rain-cover.1.jpg"   class="card-img-top" alt="...">
+                    <img src="${albumPic}"   class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">${ albumName }</h5>
                         <p class="card-text">${ artistName }</p>
@@ -60,7 +61,7 @@ $(document).ready(function () {
             // Ajax callf or single user
             $.ajax({
                 method: "DELETE",
-                url: `/api/user/5c700f01429c65f5556ce478/albums/${$("#albumStack").attr('data-userid')}`,
+                url: `/api/user/5c7077448dd19a89eb8662a5/albums/${$("#albumStack").attr('data-userid')}`,
                 success: deleteAlbum,
                 error: err => console.log(err)
             })
@@ -79,31 +80,18 @@ $(document).ready(function () {
         console.log("dbUser", dbUser);
 
         albumList = dbUser.albums;
-=======
-
-// get the alum
-$(document).ready(function () {
-    //  Set the user globally
-    // Se the user's id globally;
-     let albumList = []
-
-    console.log("app is working fine");
-    const findAlbumById = dbUser => {
-        console.log("dbUser", dbUser);
-
-         albumList = dbUser.albums;
->>>>>>> Jon-branch-1
 
         for (let i = 0; i < albumList.length; i++) {
             let artistName = albumList[i].artist.name;
             let albumName = albumList[i].name;
+            let albumPic = albumList[i].albumPic;
 
             let userId = albumList[i]._id;
             console.log(userId);
             let htmlFragment = `
             <div class="col" id="albumStack" data-userId="${userId}">
                 <div class="card" style="width: 18rem;">
-                    <img src="images/Purple-rain-cover.1.jpg"   class="card-img-top" alt="...">
+                    <img src="${albumPic}"   class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">${ albumName }</h5>
                         <p class="card-text">${ artistName }</p>
@@ -120,16 +108,11 @@ $(document).ready(function () {
 
             // Add an Event Listener and 
             $("#deleteButton").on('click', function (e) {
-                e.preventDefault()
-
+ç
                 // Ajax callf or single user
                 $.ajax({
                     method: "DELETE",
-<<<<<<< HEAD
-                    url: `/api/user/5c700f01429c65f5556ce478/albums/${$("#albumStack").attr('data-userid')}`,
-=======
-                    url: `/api/user/5c6f165de0c1096949b29556/albums/${$("#albumStack").attr('data-userid')}`,
->>>>>>> Jon-branch-1
+                    url: `/api/user/5c7077448dd19a89eb8662a5/albums/${$("#albumStack").data('userid')}`,
                     success: deleteAlbum,
                     error: err => console.log(err)
                 })
@@ -143,33 +126,24 @@ $(document).ready(function () {
         }
     }
 
-<<<<<<< HEAD
     //   Make an Ajax call to get user by id
     $.ajax({
         method: "GET",
-        url: "/api/user/5c7035396e9949fc878e45a0",
-=======
-
-    //   Make an Ajax call to get user by id
-    $.ajax({
-        method: "GET",
-        url: "/api/user/5c6f165de0c1096949b29556",
->>>>>>> Jon-branch-1
+        url: "/api/user/5c7077448dd19a89eb8662a5",
         success: findAlbumById,
         error: err => console.log(err)
     })
 
-<<<<<<< HEAD
     // Add an Event handler on the submit button
     $('#albumForm').on("submit", function (e) {
         console.log("Submit button is firing")
-        e.preventDefault();
+        
 
         let formData = $(this).serialize();
 
         $.ajax({
             method: 'POST',
-            url: '/api/user/5c7035396e9949fc878e45a0/albums',
+            url: '/api/user/5c7077448dd19a89eb8662a5/albums',
             data: formData,
             success: createNewAlbum,
             error: error => console.log(error),
@@ -214,6 +188,17 @@ $(document).ready(function () {
                 </div>
             </div>
         `;
+        $("#deleteButton").on('click', function (e) {
+
+            // Ajax callf or single user
+            $.ajax({
+                method: "DELETE",
+                url: `/api/user/5c70737f3c8a2188e166e076/albums/${$("#albumStack").data('userid')}`,
+                success: deleteAlbum,
+                error: err => console.log(err)
+            })
+        })
+
         // appending th html in the div
         $('#albumCardTarget').append(htmlFragment);
 
@@ -234,33 +219,4 @@ $(document).ready(function () {
 
 // TODO: DELETE ALBUM, EDIT USER INFO, CREATE ALBUM
 // TODO: BACKEND INTEGRATION ROUTES,
-=======
-    Add an Event handler on the submit button
-    $('#button-addon2').on("click", function (e) {
-        console.log("Submit button is firing")
-        e.preventDefault();
-        let inputValue = $('#inputSubmit').val();
-        console.log(inputValue)
-        $("input[type=text], textarea").val("");
-    })
-    Find the id of the user by id
-    const findUserId = id => {
-        console.log(`This is new user ${id}`)
-    }
 
-    TODO:  get the ablum name, image and music and display in the front end
-
-
-
-    Do an Ajax call  to create new album
-    $.ajax({
-        method: "POST",
-        url: "/api/user/5c6f165de0c1096949b29556/albums",
-        success: creatNewAlbum,
-        err: err => console.log(err)
-    })
-
-
-})
-
->>>>>>> Jon-branch-1
