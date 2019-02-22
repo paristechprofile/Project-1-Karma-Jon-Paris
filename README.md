@@ -2,27 +2,31 @@
 
 
 *Short explanation of the project (1-2 sentences) - what is the goal of the project and/or main functionality?*
-Catchy is the name of our project. Which is an app that allows us to save our favorite albums into a unordered list format that we can add or delete.
+- Catchy is the name of our project. It's an app that allows us to save our favorite albums into a unordered list format that we can add or delete.
 
-[Link to project hosted on Heroku]()
+https://catchy.herokuapp.com/
 
 ## Technologies Used
 
 *What technologies did you use to develop this project? (bullet points)*
+- html
+- javascript
+- jquery
+- bootstrap
 
 
 
 ## Existing Features
 
 *What features does your app have? (bullet points)*
-
+- Our MVP allows you to add and delete the albums you want to listen to from a list
 
 
 
 ## Planned Features
 
 *What changes would you make to your project if you continue to work on it? (bullet points)*
-
+- We will add google authentication, and the ability to play music right from the app. Considering using spotify for that which has it's own complex OAuth and API we've never used before
 ---
 
 ##### Screenshot(s) (optional)
