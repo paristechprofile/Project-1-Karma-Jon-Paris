@@ -1,36 +1,3 @@
-<<<<<<< HEAD
-// import model files 
-const
-    express = require(`express`),
-    bodyParser = require(`body-parser`),
-    db = require(`./models`);
-
-//set app to axpress library
-let app = express();
-
-//serve static files from public folder
-app.use(express.static(`/public`));
-
-
-//body parser config to accept datatypes
-app.use(bodyParser.urlencoded({extended: true}));
-
-app.get('/',(req,res)=>{
-res.sendFile(__dirname + '/views/index.html')
-});
-
-app.get(`/profile`, (req,res) =>{
-res.sendFile(__dirname + '/views/userProfile.html')
-});
-// // // // // // // // 
-// DATA 
-// // // // // // // // 
-
-
-// // // // // // // // 
-// ROUTES 
-// // // // // // // // 
-=======
 const 
     express = require('express'),
     app = express(),
@@ -51,8 +18,10 @@ app.use(express.static(__dirname + '/public'));
     res.sendFile(__dirname + '/views/index.html')
  })
 
-app.get('/profile')
-/*çç
+app.get('/profile',(req,res)=>{
+    res.sendFile(__dirname + '/views/userProfile.html')
+ });
+/*
  * Response Endpoints
  */
 app.get('/api', (req,res)=>{
@@ -73,7 +42,6 @@ app.get('/api', (req,res)=>{
             { method: "DELETE", path: "/api/user/:userid/albums/:albumid", description: "Delete an album from a collection" }
         ]
     });})
->>>>>>> b07130beaeb43d94c77f1ce18f188b4bf1d97ac8
 
 // console.log("hello")
 // Find all Users 
