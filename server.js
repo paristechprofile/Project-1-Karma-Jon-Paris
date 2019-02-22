@@ -8,15 +8,19 @@ const
 let app = express();
 
 //serve static files from public folder
-app.use(express.static(`/views/index.html`));
+app.use(express.static(`/public`));
+
 
 //body parser config to accept datatypes
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/',(req,res)=>{
 res.sendFile(__dirname + '/views/index.html')
-})
+});
 
+app.get(`/profile`, (req,res) =>{
+res.sendFile(__dirname + '/views/userProfile.html')
+});
 // // // // // // // // 
 // DATA 
 // // // // // // // // 
