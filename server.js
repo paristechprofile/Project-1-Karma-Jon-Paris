@@ -22,10 +22,28 @@ app.use(express.static(__dirname + '/public'));
 /*
  * Response Endpoints
  */
+app.get('/api', (req,res)=>{
+    res.json({
+        
+        intro: "This is the exciting Catchy API",
+        documentationUrl: "https://github.com/paristechprofile/Project-1-Karma-Jon-Paris/blob/master/README.md",
+        baseUrl: "http://YOUR-APP-NAME.herokuapp.com, Adding Later",
+        endpoints: [
+            { method: "GET", path: "/api", description: "Reference for Endpoints" },
+            { method: "GET", path: "/api/users", description: "Show all users for admin" },
+            { method: "GET", path: "/api/user/:id", description: "Shows One Specific User and their Album Collection" },
+            { method: "GET", path: "/api/profile/:id", description: "Gives a user their profile information" },
+            { method: "GET", path: "/api/albums", description: "Get all Albums in collection" },
+            { method: "POST", path: "/api/user/newuser", description: "Create a new user" },
+            { method: "POST", path: "/api/user/:id/albums", description: "Create new album for one user." },
+            { method: "PUT", path: "/api/user/:id'", description: "Update a user's information" },
+            { method: "DELETE", path: "/api/user/:userid/albums/:albumid", description: "Delete an album from a collection" }
+        ]
+    });})
 
 // console.log("hello")
 // Find all Users 
-app.get('/api/user',(req,res)=>{
+app.get('/api/users',(req,res)=>{
     db.User.find()
     // .populate('albums')
     .exec((err,users)=>{
@@ -62,10 +80,19 @@ app.get("/api/profile/:id",(req,res)=>{
     })
 })
 
+// Get All Albums in Collection 
+
+app.get('/api/albums', (req, res) =>{
+    db.Album.find({}, (err, albums)=>{
+        if (err) {return console.log(err)}
+        res.json(albums);
+    })
+})
+
 
 
 // Create User
-app.post("/api/user", (req,res)=>{
+app.post("/api/user/newuser", (req,res)=>{
     let newUser = new db.User({
         name: req.body.name,
         email: req.body.email,
@@ -80,30 +107,7 @@ app.post("/api/user", (req,res)=>{
     })
 });
 
-//Update a User
-// Still needs testing. 
-app.put('/api/user/:id',(req,res)=>{
-     
-      const userId = req.params.id;
-    
-      db.User.findOneAndUpdate(
-        { _id: userId},
-        req.body,
-        {new: true},
-        (err, updatedUser) => {
-        if (err) {throw err;}
-        res.json(updatedUser);
-      });
-    });
-
-// create album 
-
-app.get('/api/albums', (req, res) =>{
-    db.Album.find({}, (err, albums)=>{
-        if (err) {return console.log(err)}
-        res.json(albums);
-    })
-})
+// create album
 
 app.post('/api/user/:id/albums',(req,res)=>{
     db.User.findOne({_id:req.params.id}, (err,foundUser)=>{
@@ -137,6 +141,26 @@ app.post('/api/user/:id/albums',(req,res)=>{
         
     });
 });
+
+
+
+//Update a User
+// Still needs testing. 
+app.put('/api/user/:id',(req,res)=>{
+     
+      const userId = req.params.id;
+    
+      db.User.findOneAndUpdate(
+        { _id: userId},
+        req.body,
+        {new: true},
+        (err, updatedUser) => {
+        if (err) {throw err;}
+        res.json(updatedUser);
+      });
+    });
+
+
 
 // Delete an Album
 

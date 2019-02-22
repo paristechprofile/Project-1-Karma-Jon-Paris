@@ -5,7 +5,7 @@ $(document).ready(() => {
 
     $.ajax({
         method:"GET",
-        url:"http://localhost:3000/api/user/5c6ecc268d2c8e5fabfd9727",
+        url:"http://localhost:3000/api/user/5c6f165de0c1096949b29556",
 
         success: function(data){
            userName = data.name;
