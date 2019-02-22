@@ -18,7 +18,7 @@ $(document).ready(() => {
     } 
     })
 });
-/* 
+
 // click event
 $(`#updateProfileBtn`).addEventListener("click", updateProfile, false) //listen for click event
 function updateProfile(e) { //create a function that saves div as a variable and then looks for 
@@ -42,4 +42,4 @@ function updateProfile(e) { //create a function that saves div as a variable and
         }
     });
     
-}; */
+};

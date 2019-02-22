@@ -27,6 +27,10 @@
 h2, h6, .fas{
     background-color: #2d2d2d;
 }
+.fas{
+    background-color: #211F1F;
+    padding: .5em;
+}
 .header{
     height: 4em;
     display: flex;

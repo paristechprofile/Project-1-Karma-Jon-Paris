@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const 
     express = require('express'),
     app = express(),
@@ -14,7 +13,9 @@ app.use(express.static(__dirname + '/public'));
 /*
  * HTML Endpoints
  */
-
+app.get('/signIn',(req,res)=>{
+    res.sendFile(__dirname + '/views/signin.html')
+ })
  app.get('/',(req,res)=>{
     res.sendFile(__dirname + '/views/index.html')
  })
@@ -30,7 +31,7 @@ app.get('/api', (req,res)=>{
         
         intro: "This is the exciting Catchy API",
         documentationUrl: "https://github.com/paristechprofile/Project-1-Karma-Jon-Paris/blob/master/README.md",
-        baseUrl: "http://YOUR-APP-NAME.herokuapp.com, Adding Later",
+        baseUrl: "http://catchy.herokuapp.com, Adding Later",
         endpoints: [
             { method: "GET", path: "/api", description: "Reference for Endpoints" },
             { method: "GET", path: "/api/users", description: "Show all users for admin" },
@@ -43,39 +44,6 @@ app.get('/api', (req,res)=>{
             { method: "DELETE", path: "/api/user/:userid/albums/:albumid", description: "Delete an album from a collection" }
         ]
     });})
-=======
-// import model files 
-const
-    express = require(`express`),
-    bodyParser = require(`body-parser`),
-    db = require(`./models`);
-
-//set app to axpress library
-let app = express();
-
-//serve static files from public folder
-app.use(express.static(`/public`));
-
-
-//body parser config to accept datatypes
-app.use(bodyParser.urlencoded({extended: true}));
-
-app.get('/',(req,res)=>{
-res.sendFile(__dirname + '/views/index.html')
-});
-
-app.get(`/profile`, (req,res) =>{
-res.sendFile(__dirname + '/views/userProfile.html')
-});
-// // // // // // // // 
-// DATA 
-// // // // // // // // 
-
-
-// // // // // // // // 
-// ROUTES 
-// // // // // // // // 
->>>>>>> a9ab0e682c335e9fc555908d7878fdfedb87118b
 
 // console.log("hello")
 // Find all Users 
